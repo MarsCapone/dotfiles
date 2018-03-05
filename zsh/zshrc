@@ -1,0 +1,28 @@
+
+# make antibody work with oh-my-zsh
+export DISABLE_AUTO_UPDATE=true
+export ZSH="$HOME/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh"
+
+# now load the antibody plugins
+source ~/.zsh/plugins.sh
+
+alias sl="sl -l"
+alias cat="ccat"
+alias ttop="vtop"
+alias clipboard="xclip -selection clipboard"
+alias vim="nvim"
+alias v="nvim"
+alias nv="nvim"
+
+eval "$(hub alias -s)"
+
+# globbing
+#setopt EXTENDED_GLOB    # use extended globbing
+setopt GLOB_DOTS        # match patterns without leading dots
+setopt NO_MATCH         # throw error if no match
+
+# other options
+setopt NO_CORRECT
+setopt NO_BEEP
+
+autoload -U compinit; compinit
