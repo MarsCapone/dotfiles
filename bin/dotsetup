@@ -1,0 +1,72 @@
+#!/bin/sh
+
+OUTPUT=out.txt
+
+# Function definitions
+
+function usage() {
+  echo "dotsetup [all | configfile | help ]"
+  echo
+  echo "help          print this help message"
+  echo "all           loop through all directories, and run setup.sh scripts"
+  echo "configfile    path to a config file. the config file should contain "
+  echo "              the name of a directory, one per line. a directory can"
+  echo "              be followed by a list of parameters that should be "
+  echo "              passed to the 'setup.sh' file in that directory."
+}
+
+function setup_option() {
+  option=$1
+  output=$2
+  shift; shift
+  params=$@
+
+  echo "Setting up '$option'"
+  if [ -d "$option" ]; then
+    if [ -f "$option/setup.sh" ]; then
+      echo "cd $option && sh setup.sh $params"
+      cd $option && sh setup.sh $params &>> $output
+    else
+      echo "$option/setup.sh does not exist."
+    fi
+  else
+    echo "$option is not a directory"
+  fi
+}
+
+function process_config_file() {
+  file=$1
+  output=$2
+  cat $file | while read opt params; do
+    echo "Running: " $opt $output $params
+    setup_option $opt $output $params
+  done
+  echo "Done processing config file"
+  exit 0
+}
+
+# Setup the dotfiles
+if [ -z "$OUTPUT" ]; then
+  OUTPUT=/dev/stdout
+fi
+
+if [ "$1" = "all" ]; then
+  for d in ./*/; do
+    setup_option $d $OUTPUT
+  done
+elif [ "$1" = "help" ]; then
+  usage
+  exit 0
+else
+  if [ -f "$1" ]; then
+    echo "Using $(readlink -f $1) as config."
+    process_config_file $1 $OUTPUT 
+  else
+    echo "The config file '$1' does not exist"
+    echo
+    usage
+    exit 1
+  fi
+fi
+cat $OUTPUT
+rm $OUTPUT
