@@ -5,7 +5,7 @@
   title_font = Input Mono 10
   title_hide_sizetext = True
   title_inactive_bg_color = "#969896"
-  title_inactive_fg_color = "#c5c8c6"
+  title_inactive_fg_color = "#555753"
   title_transmit_bg_color = "#1d1f21"
   title_transmit_fg_color = "#c5c8c6"
   title_use_system_font = False
@@ -27,7 +27,7 @@
     cursor_color = "#c5c8c6"
     font = Input Mono 10
     force_no_bell = True
-    foreground_color = "#c5c8c6"
+    foreground_color = "#f3f3f3"
     palette = "#1d1f21:#cc342b:#198844:#fba922:#3971ed:#a36ac7:#3971ed:#c5c8c6:#969896:#cc342b:#198844:#fba922:#3971ed:#a36ac7:#3971ed:#ffffff"
     scroll_on_output = True
     scrollback_lines = 1000
