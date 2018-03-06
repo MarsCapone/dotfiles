@@ -61,6 +61,7 @@ set title				" Title is filename and path of edited file
 
 set novisualbell 			" Don't flash the screen when there is an error
 set noerrorbells 			" Don't make any noise either
+set noshowmode
 
 
 " Plugin Specific Settings
@@ -72,14 +73,12 @@ set noerrorbells 			" Don't make any noise either
 " nt to toggle nerd tree
 map nt :NERDTreeToggle<CR> 		
 
-" Open Nerd Tree if vim is opened without a file
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " Vim Airline
 " ===========
 
-let g:airline_theme='materialmonokai'      " Use the term theme
+let g:airline_theme='materialmonokai'
+let g:airline_section_z='%l/%L : %c'
 
 " NeoComplete
 " ===========
