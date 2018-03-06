@@ -11,4 +11,6 @@ curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fishe
 cp config.fish ~/.config/fish/config.fish
 cp fishfile ~/.config/fish/fishfile
 
-echo "Start fish and run fisher"
+echo
+echo "Start 'fish' and run 'fisher'"
+echo
