@@ -45,6 +45,7 @@ let g:airline_section_z = '%l/%L : %c'
 
 " deoplete
 let g:deoplete#enable_at_startup = 1
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 " =============================================================================
 " Other Settings
