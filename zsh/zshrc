@@ -5,6 +5,14 @@ export ZSH="$HOME/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-rob
 
 # now load the antibody plugins
 source ~/.zsh/plugins.sh
+plugins=(
+  sudo
+  git
+  git-extras
+  autojump
+)
+source /usr/share/autojump/autojump.zsh
+
 
 alias sl="sl -l"
 alias cat="ccat"
