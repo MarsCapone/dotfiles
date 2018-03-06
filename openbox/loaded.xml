@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openbox_menu xmlns="http://openbox.org/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://openbox.org/  file:///usr/share/openbox/menu.xsd">
+  <menu id="root-menu" label="Openbox 3">
+    <separator />
+    <item label="terminal">
+      <action name="Execute">
+        <command>exo-open --launch TerminalEmulator</command>
+      </action>
+    </item>
+    <item label="browser">
+      <action name="Execute">
+        <command>exo-open --launch WebBrowser</command>
+      </action>
+    </item>
+    <item label="editor">
+      <action name="Execute">
+        <command>atom</command>
+      </action>
+    </item>
+    <item label="files">
+      <action name="Execute">
+        <command>exo-open --launch FileManager</command>
+      </action>
+    </item>
+    <separator />
+    <menu id="screenshot" label="screenshot">
+      <item label="now">
+        <action name="Execute">
+          <command>scrot 'ArchLabs_%Y-%m-%d-%S_$wx$h.png' -e 'mv $f $$(xdg-user-dir PICTURES) ; gpicview $$(xdg-user-dir PICTURES)/$f'</command>
+        </action>
+      </item>
+      <item label="5s">
+        <action name="Execute">
+          <command>scrot -d 5 'ArchLabs_%Y-%m-%d-%S_$wx$h.png' -e 'mv $f $$(xdg-user-dir PICTURES) ; gpicview $$(xdg-user-dir PICTURES)/$f'</command>
+        </action>
+      </item>
+      <item label="10s">
+        <action name="Execute">
+          <command>scrot -d 10 'ArchLabs_%Y-%m-%d-%S_$wx$h.png' -e 'mv $f $$(xdg-user-dir PICTURES) ; gpicview $$(xdg-user-dir PICTURES)/$f'</command>
+        </action>
+      </item>
+      <item label="selection">
+        <action name="Execute">
+          <command>scrot -s 'ArchLabs_%Y-%m-%d-%S_$wx$h.png' -e 'mv $f $$(xdg-user-dir PICTURES) ; gpicview $$(xdg-user-dir PICTURES)/$f'</command>
+        </action>
+      </item>
+    </menu>
+    <separator/>
+    <menu execute="al-places-pipemenu --recent ~/" id="pipe-placesmenu" label="places"/>
+    <separator/>
+    <menu id="preferences" label="preferences">
+      <menu id="obConfig" label="openbox">
+        <item label="openbox settings">
+          <action name="Execute">
+            <command>obconf</command>
+          </action>
+        </item>
+        <item label="menu gui">
+          <action name="Execute">
+            <command>kickshaw</command>
+          </action>
+        </item>
+        <item label="keybind gui">
+          <action name="Execute">
+            <command>obkey</command>
+          </action>
+        </item>
+        <item label="autostart gui">
+          <action name="Execute">
+            <command>ob-autostart</command>
+          </action>
+        </item>
+        <separator/>
+        <item label="edit menu">
+          <action name="Execute">
+            <command>exo-open ~/.config/openbox/menu-custom.xml</command>
+          </action>
+        </item>
+        <item label="edit rc">
+          <action name="Execute">
+            <command>exo-open ~/.config/openbox/rc.xml</command>
+          </action>
+        </item>
+        <item label="edit autostart">
+          <action name="Execute">
+            <command>exo-open ~/.config/openbox/autostart</command>
+          </action>
+        </item>
+        <separator/>
+        <item label="reconfigure">
+          <action name="Reconfigure"/>
+        </item>
+        <item label="restart">
+            <action name="Restart"/>
+        </item>
+      </menu>
+      <menu execute="al-compositor" id="CompositingPipeMenu" label="compositor"/>
+      <menu execute="al-polybar-pipemenu" id="PolybarPipeMenu" label="polybar"/>
+      <menu execute="al-conky-pipemenu" id="ConkyPipeMenu" label="conky"/>
+      <menu execute="al-tint2-pipemenu" id="TintPipeMenu" label="tint2"/>
+      <menu execute="al-settings-pipemenu" id="SettingsPipeMenu" label="settings"/>
+      <menu execute="al-system-pipemenu" id="SystemPipeMenu" label="system"/>
+    </menu>
+    <menu execute="al-help-pipemenu" id="help" label="help"/>
+    <menu execute="al-kb-pipemenu" id="keybinds" label="keybinds"/>
+    <separator/>
+    <item label="lock">
+      <action name="Execute">
+        <command>i3lock-fancy -p</command>
+      </action>
+    </item>
+    <item label="exit">
+      <action name="Execute">
+        <command>rofr.sh -l</command>
+      </action>
+    </item>
+  </menu>
+</openbox_menu>
+<!-- vim:sw=2
+-->

@@ -1,0 +1,38 @@
+;=====================================================
+;     File Includes
+;=====================================================
+
+[section/base]
+include-file = /home/samson/.config/polybar/master.conf
+include-file = /home/samson/.config/polybar/custom.conf
+
+;=====================================================
+;     Bars
+;=====================================================
+
+[bar/top]
+inherit = bar/master
+
+monitor = eDP1
+
+modules-left = jgmenu workspaces window_switch
+modules-center = gpmdp
+modules-right = network redshift volume time date
+
+scroll-up = pamixer -i 2
+scroll-down = pamixer -d 2
+click-middle = skippy-xd --activate-window-picker
+double-click-left = networkmanager_dmenu
+double-click-middle = skippy-xd --activate-window-picker
+double-click-right = pavucontrol &
+
+;=====================================================
+
+[bar/bottom]
+inherit = bar/master
+bottom = true
+
+monitor = eDP1
+
+modules-left = pkg
+modules-right = battery0 battery1 memory coreuse
