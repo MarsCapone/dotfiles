@@ -17,6 +17,7 @@ if ! zgen saved; then
 fi
 
 ZGEN_RESET_ON_CHANGE=(${HOME}/.zshrc ${HOME}/.zshrc.local)
+fpath=(~/.zsh ~/.zsh/completions $fpath)
 
 source "/usr/share/autojump/autojump.zsh"
 
@@ -39,12 +40,5 @@ setopt NO_MATCH         # throw error if no match
 setopt NO_CORRECT
 setopt NO_BEEP
 
-autoload -U compinit; compinit
-# The following lines were added by compinstall
 
-zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
-zstyle :compinstall filename '/local/home/samson/.zshrc'
-
-autoload -Uz compinit
-compinit
-# End of lines added by compinstall
+autoload -Uz compinit && compinit
