@@ -1,18 +1,24 @@
+# sort out a plugin manager
+source "$HOME/.config/zgen/zgen.zsh"
 
-# make antibody work with oh-my-zsh
-export DISABLE_AUTO_UPDATE=true
-export ZSH="$HOME/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh"
+if ! zgen saved; then
+  # add plugins
+  zgen oh-my-zsh
+  zgen oh-my-zsh plugins/git
+  zgen oh-my-zsh plugins/git-extras
+  zgen oh-my-zsh plugins/sudo
 
-# now load the antibody plugins
-source ~/.zsh/plugins.sh
-plugins=(
-  sudo
-  git
-  git-extras
-  autojump
-)
-source /usr/share/autojump/autojump.zsh
+  zgen load zsh-users/zsh-completions src
+  zgen load zsh-users/zsh-syntax-highlighting
+  zgen load mafredri/zsh-async
+  zgen load sindresorhus/pure
 
+  zgen save
+fi
+
+ZGEN_RESET_ON_CHANGE=(${HOME}/.zshrc ${HOME}/.zshrc.local)
+
+source "/usr/share/autojump/autojump.zsh"
 
 alias sl="sl -l"
 alias cat="ccat"
@@ -34,3 +40,11 @@ setopt NO_CORRECT
 setopt NO_BEEP
 
 autoload -U compinit; compinit
+# The following lines were added by compinstall
+
+zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
+zstyle :compinstall filename '/local/home/samson/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
