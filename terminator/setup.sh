@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 rm -rf ~/.config/terminator > /dev/null 2>&1
 mkdir -p ~/.config/terminator

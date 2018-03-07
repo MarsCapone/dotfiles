@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 rm -rf ~/.config/polybar/config > /dev/null 2>&1
 rm -rf ~/.config/polybar/master.conf > /dev/null 2>&1

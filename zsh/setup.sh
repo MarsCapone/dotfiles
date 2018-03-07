@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Setup script for zsh
 
@@ -9,7 +9,8 @@ rm -rf ~/.zsh-dircolors.config > /dev/null 2>&1
 
 # prepare
 mkdir -p ~/.zsh
-curl -sL git.io/antibody | bash -s
+echo "Install antibody then exit with Ctrl-D"
+bash 
 
 # make links
 ln -sf $(readlink -f zshrc) ~/.zshrc

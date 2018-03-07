@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 rm -rf ~/.config/openbox/rc.xml > /dev/null 2>&1
 
