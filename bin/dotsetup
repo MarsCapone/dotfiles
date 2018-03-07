@@ -24,8 +24,10 @@ function setup_option() {
   echo "Setting up '$option'"
   if [ -d "$option" ]; then
     if [ -f "$option/setup.sh" ]; then
-      echo "cd $option && sh setup.sh $params"
-      cd $option && sh setup.sh $params &>> $output
+      echo "cd $option; sh setup.sh $params"
+      cd $option
+      sh setup.sh $params &>> $output
+      cd ..
     else
       echo "$option/setup.sh does not exist."
     fi
@@ -38,7 +40,7 @@ function process_config_file() {
   file=$1
   output=$2
   cat $file | while read opt params; do
-    echo "Running: " $opt $output $params
+    echo "Running: $opt/setup.sh $params >> $output"
     setup_option $opt $output $params
   done
   echo "Done processing config file"
@@ -49,6 +51,8 @@ function process_config_file() {
 if [ -z "$OUTPUT" ]; then
   OUTPUT=/dev/stdout
 fi
+
+OUTPUT="$(pwd)/$OUTPUT"
 
 if [ "$1" = "all" ]; then
   for d in ./*/; do
