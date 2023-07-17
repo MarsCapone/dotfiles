@@ -1,5 +1,7 @@
 {{ $email := promptString "email" }}
+{{ $isWork := promptBool "is work" }}
 
 [data]
     email = {{ $email | quote }}
+    isWork = {{ $isWork }}
 

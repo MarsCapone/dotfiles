@@ -55,7 +55,7 @@
   lineNumber = true
   patternType = extended
 
-{{- if eq .chezmoi.username "samson.danziger" }}
+{{- if .isWork }}
 [alias]
   trigger = commit -m "Trigger" --allow-empty
 {{- end }}

@@ -1,0 +1,39 @@
+# Managed by chezmoi
+# Generated on {{ output "date" }}
+
+{{- if lookPath "starship" }}
+# Load Starship (https://starship.rs)
+eval "$(starship init zsh)"
+{{- end}}
+
+{{- if not (lookPath "starship") }}
+echo "Install starship.rs, then rerun chezmoi"
+{{- end}}
+
+# Don't insert a tab character if nothing has been typed
+zstyle ':completion:*' insert-tab false
+
+# ???
+zstyle ":completion:*:sudo:*" command-path $HOME/bin /usr/sbin /usr/bin
+
+# Option stacking in docker
+zstyle ':completion:*:*:docker:*' option-stacking yes
+zstyle ':completion:*:*:docker-*:*' option-stacking yes
+
+{{- if lookPath "cargo" }}
+source "$HOME/.cargo/env"
+{{- end }}
+
+# Load all other files
+for zsh_file in $HOME/.zsh/*.zsh; do
+    source $zsh_file
+done
+
+# Make sure pyenv is initialised
+eval "$(pyenv init -)"
+
+# Load iterm2 extensions
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# Use vim-mode
+bindkey -v

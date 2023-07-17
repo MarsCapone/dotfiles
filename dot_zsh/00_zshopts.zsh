@@ -7,6 +7,7 @@ setopt EXTENDED_GLOB        # more zsh globbing options. see `man zshexpn`
 setopt NOMATCH              # if a pattern has no matches, print an error
 setopt NO_CORRECT           # don't try to correct mis-spellings
 setopt NO_BEEP              # don't beep if something goes wrong
+setopt NO_LIST_BEEP
 
 export HISTFILE=$HOME/.zsh_history
 export SAVEHIST=1000000000  # 1B commands saved
