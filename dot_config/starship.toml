@@ -33,7 +33,9 @@ symbol = ' '
 [python]
 symbol = " "
 pyenv_version_name = true
-format = '[\[${symbol}(${version})\]]($style)'
+format = '[\[${symbol}${version}\]]($style)'
+python_binary = 'python3'
+detect_extensions = []
 
 
 

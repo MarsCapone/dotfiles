@@ -1,7 +1,9 @@
-if [ ! -f $HOME/.zsh/external/antigen.zsh ]; then
-    mkdir -p $HOME/.zsh/external
+ANTIGEN_PATH=$HOME/.zsh/external
+
+if [ ! -f $ANTIGEN_PATH/antigen.zsh ]; then
+    mkdir -p $ANTIGEN_PATH
     echo "Downloading antigen.zsh"
-    curl -L git.io/antigen > $HOME/.zsh/external/antigen.zsh
+    curl -L git.io/antigen > $ANTIGEN_PATH/antigen.zsh
 fi
 
 source $HOME/.zsh/external/antigen.zsh
