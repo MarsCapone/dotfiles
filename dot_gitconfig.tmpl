@@ -3,13 +3,16 @@
 
 [user]
 	name = Samson Danziger
-	email = samson@danziger.uk
+	email = {{ .email }}
 
 [core]
 	editor = nvim
-	excludesfile = /Users/samson/.gitignore
+	excludesfile = {{ .chezmoi.homeDir }}/.gitignore
 	pager = delta
     
+[push]
+	autoSetupRemote = true
+
 [help]
 	autocorrect = 25
 
@@ -36,5 +39,3 @@
 	old = red bold
 	new = green bold
 	whitespace = red reverse
-[push]
-	autoSetupRemote = true
