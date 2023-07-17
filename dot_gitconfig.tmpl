@@ -41,3 +41,21 @@
 	old = red bold
 	new = green bold
 	whitespace = red reverse
+
+[color "grep"]
+  selected = normal
+  linenumber = yellow bold
+  match = red bold
+  filename = magenta
+  context = cyan
+  function = green
+  separator = blue
+
+[grep]
+  lineNumber = true
+  patternType = extended
+
+{{- if eq .chezmoi.username "samson.danziger" }}
+[alias]
+  trigger = commit -m "Trigger" --allow-empty
+{{- end }}
