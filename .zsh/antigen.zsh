@@ -1,3 +1,9 @@
+if [ ! -f $HOME/.zsh/external/antigen.zsh ]; then
+    mkdir -p $HOME/.zsh/external
+    echo "Downloading antigen.zsh"
+    curl -L git.io/antigen > $HOME/.zsh/external/antigen.zsh
+fi
+
 source $HOME/.zsh/external/antigen.zsh
 
 antigen use oh-my-zsh
