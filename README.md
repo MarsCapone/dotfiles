@@ -9,6 +9,14 @@ Main components:
 
 ## Getting Started
 
+### On a new machine
+
+```
+chezmoi init --apply $GITHUB_USERNAME
+```
+
+### On an existing machine
+
 1. Install `chezmoi`
 ```
 brew install chezmoi
