@@ -6,9 +6,11 @@
 	email = {{ .email }}
 
 [core]
-	editor = nvim
-	excludesfile = {{ .chezmoi.homeDir }}/.gitignore
-	pager = delta
+    editor = nvim
+    excludesfile = {{ .chezmoi.homeDir }}/.gitignore
+{{ if lookPath "delta" }}
+    pager = delta
+{{ end }}
     
 [push]
 	autoSetupRemote = true
