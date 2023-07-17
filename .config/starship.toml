@@ -1,0 +1,126 @@
+# Schema for this file
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Newlines between prompts
+add_newline = true
+
+# Wait for starship to check the current directory (ms)
+scan_timeout = 10
+
+format = """
+$directory\
+$python$java$golang$nodejs$haskell$ruby$c\
+$git_branch$git_commit$git_state\
+$fill\
+$cmd_duration$time
+$character\
+"""
+
+[time]
+disabled = false
+format = '[\[$time\]]($style)'
+style = 'white dimmed'
+
+[cmd_duration]
+format = '[$duration ]($style)'
+min_time = 2_000
+show_milliseconds = false
+style = 'yellow'
+
+[fill]
+symbol = ' '
+
+[python]
+symbol = " "
+pyenv_version_name = true
+format = '[\[${symbol}(${version})\]]($style)'
+
+
+
+[aws]
+symbol = "  "
+
+[c]
+symbol = " "
+
+[directory]
+read_only = " 󰌾"
+style = 'blue'
+before_repo_root_style = 'bold blue'
+repo_root_style = 'bold blue'
+truncation_length = 4
+truncate_to_repo = true
+
+[docker_context]
+symbol = " "
+
+[git_branch]
+symbol = " "
+format = '[\[$symbol$branch\]]($style)'
+
+[golang]
+symbol = " "
+format = '[\[$symbol($version)\]]($style)'
+
+[haskell]
+symbol = " "
+format = '[\[$symbol($version)\]]($style)'
+
+
+[nodejs]
+symbol = " "
+format = '[\[$symbol($version)\]]($style)'
+
+[package]
+symbol = "󰏗 "
+
+[java]
+symbol = " "
+format = '[\[$symbol($version)\]]($style)'
+style = 'red bold'
+
+[ruby]
+symbol = " "
+format = '[\[$symbol($version)\]]($style)'
+
+[os.symbols]
+Alpaquita = " "
+Alpine = " "
+Amazon = " "
+Android = " "
+Arch = " "
+Artix = " "
+CentOS = " "
+Debian = " "
+DragonFly = " "
+Emscripten = " "
+EndeavourOS = " "
+Fedora = " "
+FreeBSD = " "
+Garuda = "󰛓 "
+Gentoo = " "
+HardenedBSD = "󰞌 "
+Illumos = "󰈸 "
+Linux = " "
+Mabox = " "
+Macos = " "
+Manjaro = " "
+Mariner = " "
+MidnightBSD = " "
+Mint = " "
+NetBSD = " "
+NixOS = " "
+OpenBSD = "󰈺 "
+openSUSE = " "
+OracleLinux = "󰌷 "
+Pop = " "
+Raspbian = " "
+Redhat = " "
+RedHatEnterprise = " "
+Redox = "󰀘 "
+Solus = "󰠳 "
+SUSE = " "
+Ubuntu = " "
+Unknown = " "
+Windows = "󰍲 "
+

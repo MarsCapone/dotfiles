@@ -1,0 +1,38 @@
+[init]
+	defaultBranch = main
+
+[user]
+	name = Samson Danziger
+	email = samson@danziger.uk
+
+[core]
+	editor = nvim
+	excludesfile = /Users/samson/.gitignore
+	pager = delta
+    
+[help]
+	autocorrect = 25
+
+[interactive]
+	diffFilter = delta --color-only
+
+[color]
+    ui = true
+
+[delta]
+    navigate = true
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default
+
+[color "diff"]
+	meta = 11
+	frag = magenta bold
+	func = 146 bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
