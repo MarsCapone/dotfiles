@@ -20,20 +20,80 @@ zstyle ":completion:*:sudo:*" command-path $HOME/bin /usr/sbin /usr/bin
 zstyle ':completion:*:*:docker:*' option-stacking yes
 zstyle ':completion:*:*:docker-*:*' option-stacking yes
 
-{{- if lookPath "cargo" }}
-source "$HOME/.cargo/env"
-{{- end }}
+# Use vim-mode
+bindkey -v
 
-# Load all other files
-for zsh_file in $HOME/.zsh/*.zsh; do
-    source $zsh_file
-done
+# Options
+setopt INC_APPEND_HISTORY   # multiple instances append history instead of overwriting
+setopt EXTENDED_HISTORY     # include the timestamp in the history
+setopt HIST_FIND_NO_DUPS    # don't show duplicates when searching history
+setopt GLOB_DOTS            # let files beginning with `.` be matched without explicitly 
+                            # specifying the dot.
+setopt EXTENDED_GLOB        # more zsh globbing options. see `man zshexpn`
+setopt NOMATCH              # if a pattern has no matches, print an error
+setopt NO_CORRECT           # don't try to correct mis-spellings
+setopt NO_BEEP              # don't beep if something goes wrong
+setopt NO_LIST_BEEP
+
+#== Antigen ==#
+source $HOME/.zsh/external/antigen.zsh
+antigen use oh-my-zsh
+antigen bundles <<EOF
+    safe-paste
+    history
+    command-not-found
+    colorize
+    colored-man-pages
+
+{{ if eq .chezmoi.os "darwin" }}
+    brew
+    macos
+{{ end }}
+    
+    pyenv
+    pip
+    python
+    jenv
+    rbenv
+    git
+    autojump
+
+    zsh-users/zsh-completions
+    zsh-users/zsh-autosuggestions
+    zsh-users/zsh-syntax-highlighting
+EOF
+
+antigen apply
+
+#== Aliases ==#
+
+# Better ls
+alias ls="lsd"
+alias ll="lsd -l"
+alias la="lsd -la"
+
+# Tools
+alias tldr="tldr -t base16 -o osx"
+alias psql="pgcli"
+
+# Python
+alias py3="PYTHONWARNINGS=ignore ipython"
+
+# Terraform
+alias tf="terraform"
+alias tfi='terraform init -backend-config=$TF_BACKEND_CONFIG'
+alias tfp='terraform plan $TF_CLI_PARAMS -lock=false'
+alias tfa='terraform apply $TF_CLI_PARAMS'
+
+#== Other setup ==#
 
 # Make sure pyenv is initialised
 eval "$(pyenv init -)"
 
-# Load iterm2 extensions
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+{{- if lookPath "cargo" }}
+source "$HOME/.cargo/env"
+{{- end }}
 
-# Use vim-mode
-bindkey -v
+# Autocompletion for 1Password
+eval "$(op completion zsh)"; compdef _op op
+

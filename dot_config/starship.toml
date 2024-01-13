@@ -13,13 +13,19 @@ $python$java$golang$nodejs$haskell$ruby$c\
 $git_branch$git_commit$git_state\
 $fill\
 $cmd_duration$time
-$character\
+$hostname$character\
 """
 
 [time]
 disabled = false
 format = '[\[$time\]]($style)'
 style = 'white dimmed'
+
+[hostname]
+trim_at = '.'
+ssh_only = true
+style = 'bright-black'
+format = '[$hostname ]($style)'
 
 [cmd_duration]
 format = '[$duration ]($style)'

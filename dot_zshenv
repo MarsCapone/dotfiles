@@ -1,0 +1,7 @@
+
+export HISTFILE=$HOME/.zsh_history
+export SAVEHIST=1000000000  # 1B commands saved
+export HISTORY_IGNORE='(unset *|l[asl](| *)|j *|)'
+
+export LESS=" -R -X -F "
+

@@ -2,7 +2,6 @@ call plug#begin(stdpath('data') . '/plugged')
 
   Plug 'vim-airline/vim-airline'
   Plug 'skielbasa/vim-material-monokai'
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 call plug#end()
 
@@ -36,10 +35,6 @@ let g:materialmonokai_subtle_airline=1
 let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline_statusline_ontop = 0
-
-" deoplete
-let g:deoplete#enable_at_startup = 1
-call deoplete#custom#option('auto_complete_delay', 50)
 
 " ===
 " Other settings
