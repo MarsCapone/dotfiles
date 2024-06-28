@@ -95,8 +95,12 @@ eval "$(pyenv init -)"
 source "$HOME/.cargo/env"
 {{- end }}
 
+{{- if lookPath "op" }}
 # Autocompletion for 1Password
 eval "$(op completion zsh)"; compdef _op op
+{{- end }}
 
+{{- if lookPath "direnv" }}
 # Direnv
 eval "$(direnv hook zsh)"
+{{- end }}
