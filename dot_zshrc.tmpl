@@ -87,9 +87,6 @@ alias tfa='terraform apply $TF_CLI_PARAMS'
 
 #== Other setup ==#
 
-# Make sure pyenv is initialised
-eval "$(pyenv init -)"
-
 {{- if lookPath "cargo" }}
 # Cargo (rust package manager)
 source "$HOME/.cargo/env"
