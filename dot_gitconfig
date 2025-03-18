@@ -1,0 +1,54 @@
+[core]
+	editor = hx
+	excludesfile = ~/.gitignore
+	pager = delta
+
+[push]
+	autoSetupRemote = true
+
+[help]
+	autocorrect = 15
+
+[interactive]
+	diffFilter = delta --color-only
+
+[color]
+	ui = true
+
+[delta]
+	navigate = true
+	dark = true
+
+[merge]
+	conflictstyle = diff3
+
+[diff]
+	colorMoved = default
+
+[grep]
+	lineNumber = true
+	patternType = extended
+
+[alias]
+	mb = merge-base origin $(git symbolic-ref refs/remotes/origin/HEAD --short)
+
+[color "diff"]
+	meta = 11
+	frag = magenta bold
+	func = 146 bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+
+[color "grep"]
+	selected = normal
+	linenumber = yellow bold
+	match = red bold
+	filename = magenta
+	context = cyan
+	function = green
+	separator = blue
+[user]
+	name = Samson Ventura-Danziger
+	email = samson@danziger.uk

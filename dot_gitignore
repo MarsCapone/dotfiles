@@ -2,3 +2,5 @@
 Justfile
 .python-version
 .idea/
+.env
+.envrc
