@@ -1,0 +1,13 @@
+# configure brew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# configure extra paths
+export PATH="$HOME/bin:$PATH"
+
+# colours
+export LS_COLORS="$(vivid generate snazzy)"
+
+
+# Added by Toolbox App
+export PATH="$PATH:/Users/samson/Library/Application Support/JetBrains/Toolbox/scripts"
+

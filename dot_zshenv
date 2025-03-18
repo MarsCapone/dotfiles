@@ -1,0 +1,2 @@
+# uv
+export PATH="/Users/samson/.local/bin:$PATH"

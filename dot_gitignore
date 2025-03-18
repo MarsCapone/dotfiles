@@ -1,0 +1,4 @@
+.justfile
+Justfile
+.python-version
+.idea/

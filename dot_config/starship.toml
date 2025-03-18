@@ -1,0 +1,80 @@
+# Schema for this file
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Newlines between prompts
+add_newline = true
+
+# Wait for starship to check the current directory (ms)
+scan_timeout = 10
+
+format = """
+$directory\
+$python$ruby$java$golang$haskell\
+$git_branch$git_commit$git_state\
+$fill\
+$cmd_duration$time
+$hostname$character\
+"""
+
+[time]
+disabled = false
+format = '[\[$time\]]($style)'
+style = 'white dimmed'
+
+[hostname]
+trim_at = '.'
+ssh_only = true
+style = 'bright-black'
+format = '[$hostname ]($style)'
+
+[cmd_duration]
+format = '[$duration ]($style)'
+min_time = 2_000
+show_milliseconds = false
+style = 'yellow'
+
+[fill]
+symbol = ' '
+
+[aws]
+symbol = "aws "
+
+[directory]
+read_only = " ro"
+style = 'blue'
+before_repo_root_style = 'bold blue'
+repo_root_style = 'bold blue'
+truncation_length = 4
+truncate_to_repo = true
+
+[docker_context]
+symbol = "docker "
+
+[git_branch]
+symbol = ""
+format = '[\[$symbol$branch\]]($style)'
+
+[python]
+format = '[(\[py ${version}\])]($style)'
+python_binary = 'python3'
+version_format = '$major.$minor'
+
+[golang]
+format = '[(\[go $version\])]($style)'
+
+[haskell]
+format = '[(\[hs $version\])]($style)'
+
+
+[nodejs]
+format = '[(\[js $version\])]($style)'
+
+
+[java]
+format = '[(\[java $version\])]($style)'
+style = 'red bold'
+
+[ruby]
+format = '[(\[rb $version\])]($style)'
+style = 'red bold'
+

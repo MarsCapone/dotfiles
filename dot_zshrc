@@ -1,0 +1,36 @@
+# source antidote (package manager)
+source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
+antidote load
+
+# disable minimise with cmd+m
+defaults write -g NSUserKeyEquivalents -dict-add 'Minimize' '\0'
+
+### shell setup ###
+
+# don't insert a tab if nothing has been typed
+zstyle ':completion:*' insert-tab false
+
+# complete by jumping around the options
+zstyle ':completion:*' menu select
+
+# use vim mode
+bindkey -v
+
+# options
+setopt INC_APPEND_HISTORY  # multiple instances append history instead of overwriting
+setopt HIST_FIND_NO_DUPS   # don't show duplicates when searching history
+setopt GLOB_DOTS           # let files beginning `.` be matched without explicitly specifying the dot.
+setopt EXTENDED_GLOB       # more zsh glob options
+setopt NOMATCH             # if a pattern has no matches, error
+setopt NO_CORRECT          # don't try to correct spelling errors
+setopt NO_BEEP             # don't make a noise if something is wrong
+setopt NO_LIST_BEEP
+
+### aliases ##
+alias ls="lsd"
+alias py3="PYTHONWARNINGS=ignore ipython3"
+
+### plugin configuration
+
+# pj: set project paths
+PROJECT_PATHS=(~/Projects)

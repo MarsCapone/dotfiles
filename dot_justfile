@@ -1,0 +1,6 @@
+#!/usr/bin/env just --justfile
+
+[no-cd]
+pyproj:
+    echo "layout uv" >> .envrc
+    direnv allow
