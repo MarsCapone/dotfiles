@@ -1,0 +1,12 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/usr/bin/env zsh
+
+{{- if not (lookPath "brew") -}}
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+eval "$(/opt/homebrew/bin/brew shellenv)"
+{{ end }}
+
+brew bundle --file={{ joinPath .chezmoi.sourceDir "Brewfile" }}
+
+{{ end }}
+

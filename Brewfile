@@ -1,0 +1,18 @@
+# Regenerate with `brew bundle dump`
+
+brew "antidote"
+brew "autojump"
+brew "chezmoi"
+brew "direnv"
+brew "ffmpeg"
+brew "git-delta"
+brew "helix"
+brew "just"
+brew "lsd"
+brew "mpv"
+brew "ripgrep"
+brew "starship"
+brew "tlrc"
+brew "uv"
+brew "vivid"
+cask "1password-cli"
