@@ -7,6 +7,8 @@ export PATH="$HOME/bin:$PATH"
 # colours
 export LS_COLORS="$(vivid generate snazzy)"
 
+# tools
+export EDITOR="hx"
 
 # Added by Toolbox App
 export PATH="$PATH:/Users/samson/Library/Application Support/JetBrains/Toolbox/scripts"
