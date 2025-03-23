@@ -7,7 +7,6 @@ zsh-users/zsh-completions  kind:fpath path:src
 getantidote/use-omz        # handle OMZ dependencies
 ohmyzsh/ohmyzsh path:lib   # load OMZ's library
 ohmyzsh/ohmyzsh path:plugins/aws
-ohmyzsh/ohmyzsh path:plugins/autojump
 ohmyzsh/ohmyzsh path:plugins/chezmoi
 ohmyzsh/ohmyzsh path:plugins/colored-man-pages
 ohmyzsh/ohmyzsh path:plugins/colorize
@@ -22,3 +21,7 @@ ohmyzsh/ohmyzsh path:plugins/magic-enter
 ohmyzsh/ohmyzsh path:plugins/pj
 ohmyzsh/ohmyzsh path:plugins/poetry
 ohmyzsh/ohmyzsh path:plugins/starship
+
+# other tools
+ajeetdsouza/zoxide
+fdw/yazi-zoxide-zsh

@@ -1,5 +1,4 @@
 brew "antidote"
-brew "autojump"
 brew "chezmoi"
 brew "direnv"
 brew "fd"
