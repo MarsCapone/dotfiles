@@ -13,10 +13,18 @@ tab_size = 2
 play = [
 	{ run = 'mpv "$@"', orphan = true, for = "unix" },
 ]
+view = [
+	{ run = 'mpv "$@" --pause', for = "unix" }
+]
+open = [
+	{ run = 'xdg-open "$@"', desc = "Open" },
+]
 
 [open]
-rules = [
-  { mime = "video/*", use = "edit" },
+prepend_rules = [
+  { mime = "video/*", use = "play" },
+	{ mime = "image/*", use = "view" },
+	{ name = "*/", use = ["view"] }
 ]
 
 
