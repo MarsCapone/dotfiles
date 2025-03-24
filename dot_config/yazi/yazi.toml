@@ -1,0 +1,22 @@
+[manager]
+show_hidden = true
+show_symlink = true
+
+# widths for panes (out of 8)
+ratio = [2, 3, 3]
+
+[preview]
+# \t character is 2 spaces long
+tab_size = 2
+
+[opener]
+play = [
+	{ run = 'mpv "$@"', orphan = true, for = "unix" },
+]
+
+[open]
+rules = [
+  { mime = "video/*", use = "edit" },
+]
+
+
