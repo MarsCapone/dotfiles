@@ -57,6 +57,7 @@ class CustomPrompt(Prompts):
             (Token.Text, self.vi_mode().lower()[0]),
             (Token, " " if self.vi_mode() else ""),
             (Token.Prompt, self._get_pyenv_version()),
+            (Token, "\n"),
             (
                 Token.Prompt if self.shell.last_execution_succeeded else Token.Generic.Error,
                 "❯ "
@@ -64,7 +65,7 @@ class CustomPrompt(Prompts):
         ]
 
     def continuation_prompt_tokens(self, width=None):
-        return [(Token.Text, "... " if self.vi_mode() else ". ")]
+        return [(Token.Text, ". ")]
 
 
 ## Class used to generate Prompt token for prompt_toolkit

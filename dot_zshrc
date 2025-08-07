@@ -34,3 +34,15 @@ alias py3="PYTHONWARNINGS=ignore ipython3"
 
 # pj: set project paths
 PROJECT_PATHS=(~/Projects)
+
+### fnm (fast node manager)
+eval "$(fnm env --use-on-cd --shell zsh)"
+
+# bun completions
+[ -s "/Users/samson/.bun/_bun" ] && source "/Users/samson/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+export GPG_TTY=$(tty)

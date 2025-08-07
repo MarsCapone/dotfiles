@@ -52,3 +52,6 @@
 [user]
 	name = Samson Ventura-Danziger
 	email = samson@danziger.uk
+	signingkey = 624BA0DD54AD4854
+[commit]
+	gpgsign = true
